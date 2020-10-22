@@ -1,10 +1,12 @@
 const db = require('../models');
+const errorHandler = require('../helpers/errors');
 
 function list(req, res, next) {
     db.Provider.findAll()
         .then((data) => {
             res.status(200).send(data);
         })
+        .catch(errorHandler(res))
 }
 
 function create(req, res, next) {
@@ -12,6 +14,7 @@ function create(req, res, next) {
         .then((data) => {
             res.status(201).send(data);
         })
+        .catch(errorHandler(res))
 }
 
 function one(req, res, next) {
@@ -19,6 +22,7 @@ function one(req, res, next) {
         .then((data) => {
             res.status(200).send(data);
         })
+        .catch(errorHandler(res))
 }
 
 function edit(req, res, next) {
@@ -26,6 +30,7 @@ function edit(req, res, next) {
         .then(() => {
             res.sendStatus(200);
         })
+        .catch(errorHandler(res))
 }
 
 function remove(req, res, next) {
@@ -33,6 +38,7 @@ function remove(req, res, next) {
         .then(() => {
             res.sendStatus(200);
         })
+        .catch(errorHandler(res))
 }
 
 module.exports = {
