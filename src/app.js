@@ -1,12 +1,12 @@
 
 
 const express = require('express');
-const config = require('../config/config');
+const config = require('./config/config');
 const db = require('./models');
 
 const app = express();
 
-module.exports = require('../config/express')(app, config);
+module.exports = require('./config/express')(app, config);
 
 db.sequelize
   .sync()
