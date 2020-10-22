@@ -9,7 +9,7 @@ const config = {
       name: 'market-test'
     },
     port: process.env.PORT || 3000,
-    db: 'postgres://postgres:test@localhost/market-test-development'
+    db: process.env.DB_URL || 'postgres://postgres:test@localhost/market-test-development'
   },
 
   test: {
