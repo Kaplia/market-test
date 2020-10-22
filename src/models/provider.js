@@ -12,8 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: (models) => {
-        // example on how to add relations
-        // Article.hasMany(models.Comments);
+        Provider.hasMany(models.Product, {foreignKey: 'providerId'});
       }
     }
   });

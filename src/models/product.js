@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: (models) => {
-        //Product.belongsTo(models.Comments);
+        Product.belongsTo(models.Provider, {foreignKey: 'providerId'});
+        Product.belongsTo(models.Category, {foreignKey: 'categoryId'});
       }
     }
   });
